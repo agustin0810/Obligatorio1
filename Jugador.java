@@ -30,6 +30,9 @@ public class Jugador extends Persona {
         this.numero = numero;
         this.edad = pEdad;
     }
+    public Jugador() {
+        super();
+    }
 
     @Override
     public String toString() {

@@ -12,53 +12,79 @@ public class Equipo {
         this.nombre = nombre;
     }
 
-    public Jugador[] getJugadoresTitulares() {
+    public Equipo(String nombre){
+        inicializarJugadoresTitulares();
+        inicializarJugadoresSuplentes();
+        inicializarEntrenador();
+        this.nombre = nombre;
+    }
+
+    private String nombre;
+
+    public ArrayList<Jugador> getJugadoresTitulares() {
         return jugadoresTitulares;
     }
 
-    public void setJugadoresTitulares(Jugador[] jugadoresTitulares) {
+    public void setJugadoresTitulares(ArrayList<Jugador> jugadoresTitulares) {
         this.jugadoresTitulares = jugadoresTitulares;
     }
 
-    public Jugador[] getJugadoresSuplentes() {
+    public ArrayList<Jugador> getJugadoresSuplentes() {
         return jugadoresSuplentes;
     }
 
-    public void setJugadoresSuplentes(Jugador[] jugadoresSuplentes) {
+    public void setJugadoresSuplentes(ArrayList<Jugador> jugadoresSuplentes) {
         this.jugadoresSuplentes = jugadoresSuplentes;
     }
 
-    public Entrenador[] getEntrenador() {
+    public ArrayList<Entrenador> getEntrenador() {
         return entrenador;
     }
 
-    public void setEntrenador(Entrenador[] entrenador) {
+    public void setEntrenador(ArrayList<Entrenador> entrenador) {
         this.entrenador = entrenador;
     }
 
-    public Equipo(String nombre, Jugador[] jugadoresTitulares, Jugador[] jugadoresSuplentes, Entrenador[] entrenador) {
+    public Equipo(String nombre, ArrayList<Jugador> jugadoresTitulares, ArrayList<Jugador> jugadoresSuplentes, ArrayList<Entrenador> entrenador) {
+        inicializarJugadoresTitulares();
+        inicializarJugadoresSuplentes();
+        inicializarEntrenador();
         this.nombre = nombre;
         this.jugadoresTitulares = jugadoresTitulares;
         this.jugadoresSuplentes = jugadoresSuplentes;
         this.entrenador = entrenador;
-    }
-    public Equipo(String nombre){
-        this.nombre = nombre;
     }
 
     @Override
     public String toString() {
         return "Equipo{" +
                 "nombre='" + nombre + '\'' +
-                ", jugadoresTitulares=" + Arrays.toString(jugadoresTitulares) +
-                ", jugadoresSuplentes=" + Arrays.toString(jugadoresSuplentes) +
-                ", entrenador=" + Arrays.toString(entrenador) +
+                ", jugadoresTitulares=" + jugadoresTitulares +
+                ", jugadoresSuplentes=" + jugadoresSuplentes +
+                ", entrenador=" + entrenador +
                 '}';
     }
 
-    private String nombre;
-    private Jugador[] jugadoresTitulares;
-    private Jugador[] jugadoresSuplentes;
-    private Entrenador[] entrenador;
+    public void inicializarJugadoresTitulares(){
+        for(int i = 0; i < 10; i++){
+            Jugador temporal = new Jugador();
+            jugadoresTitulares.add(temporal);
+        }
+    }
+    public void inicializarJugadoresSuplentes(){
+        for(int i = 0; i < 10; i++){
+            Jugador temporal = new Jugador();
+            jugadoresSuplentes.add(temporal);
+        }
+    }
+    public void inicializarEntrenador(){
+        for(int i = 0; i < 10; i++){
+            Entrenador temporal = new Entrenador();
+            entrenador.add(temporal);
+        }
+    }
+    private ArrayList<Jugador> jugadoresTitulares = new ArrayList<>();
+    private ArrayList<Jugador> jugadoresSuplentes = new ArrayList<>();
+    private ArrayList<Entrenador> entrenador = new ArrayList<>();
 
 }

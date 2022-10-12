@@ -15,4 +15,7 @@ public class Entrenador extends Persona{
         super(pCedula, pNombre, pApellido);
         edad = pEdad;
     }
+    public Entrenador(){
+        super();
+    }
 }

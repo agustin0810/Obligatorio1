@@ -17,7 +17,7 @@ public class Main {
         int opcion = entrada.nextInt();
         switch (opcion){
             case 1:
-                Formularios.menuPrincipalEquipos(entrada); // Llamamos a función estática para separar código
+                Formularios.menuPrincipalEquipos(); // Llamamos a función estática para separar código
                 break;
             case 2:
                 break;
