@@ -14,19 +14,19 @@ public class Partido {
         this.lugar = lugar;
     }
 
-    public LocalDate getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
-    public void setFecha(LocalDate fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
 
-    public LocalTime getHora() {
+    public String getHora() {
         return hora;
     }
 
-    public void setHora(LocalTime hora) {
+    public void setHora(String hora) {
         this.hora = hora;
     }
 
@@ -46,14 +46,16 @@ public class Partido {
         this.minutosJugados = minutosJugados;
     }
 
-    public Partido(String lugar, LocalDate fecha, LocalTime hora, String clima, int minutosJugados) {
+    public Partido(String lugar, String fecha, String hora, String clima, int minutosJugados) {
         this.lugar = lugar;
         this.fecha = fecha;
         this.hora = hora;
         this.clima = clima;
         this.minutosJugados = minutosJugados;
     }
+    public Partido(){
 
+    }
     @Override
     public String toString() {
         return "Partido{" +
@@ -65,8 +67,8 @@ public class Partido {
                 '}';
     }
 
-    private LocalDate fecha;
-    private LocalTime hora;
+    private String fecha;
+    private String hora;
     private String clima;
     private int minutosJugados;
 

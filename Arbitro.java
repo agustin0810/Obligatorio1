@@ -13,6 +13,9 @@ public class Arbitro extends Persona{
         super(cedula, nombre, apellido);
         this.puesto = puesto;
     }
+    public Arbitro(){
+
+    }
 
     @Override
     public String toString() {

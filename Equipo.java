@@ -66,19 +66,19 @@ public class Equipo {
     }
 
     public void inicializarJugadoresTitulares(){
-        for(int i = 0; i < 10; i++){
+        for(int i = 0; i < 11; i++){
             Jugador temporal = new Jugador();
             jugadoresTitulares.add(temporal);
         }
     }
     public void inicializarJugadoresSuplentes(){
-        for(int i = 0; i < 10; i++){
+        for(int i = 0; i < 5; i++){
             Jugador temporal = new Jugador();
             jugadoresSuplentes.add(temporal);
         }
     }
     public void inicializarEntrenador(){
-        for(int i = 0; i < 10; i++){
+        for(int i = 0; i < 1; i++){
             Entrenador temporal = new Entrenador();
             entrenador.add(temporal);
         }
