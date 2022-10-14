@@ -49,8 +49,6 @@ public class Jugador extends Persona {
     private String puesto;
     private int numero;
 
-
-
     private int edad;
 
 }
