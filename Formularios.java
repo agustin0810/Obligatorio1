@@ -19,7 +19,7 @@ public class Formularios {
         // Llevar a menú de partido en juego
         // No dejar que se comience sin configuraciones de arriba
         Scanner entrada = new Scanner(System.in);
-        int opcion = entrada.nextInt();
+        int opcion = Integer.parseInt(entrada.nextLine());
         switch (opcion){
             case 1:
                 menuPrincipalEquipos(); // Llamamos a función estática de menú equipos para separar código
@@ -45,10 +45,10 @@ public class Formularios {
         if(equipos[0]==null){ // Solo deja ingresar si no hay equipos ingresados
             System.out.println("Menú principal del juego:");
             System.out.println("Ingrese nombre de equipo 1");
-            Equipo equipo1 = new Equipo(entrada.nextLine());
+            Equipo equipo1 = new Equipo(entrada.next());
             equipos[0] = equipo1;
             System.out.println("Ingrese nombre de equipo 2");
-            Equipo equipo2 = new Equipo(entrada.nextLine());
+            Equipo equipo2 = new Equipo(entrada.next());
             equipos[1] = equipo2;
             cargarDatos();
         }
@@ -60,6 +60,7 @@ public class Formularios {
         System.out.println("1. " + equipos[0].getNombre());
         System.out.println("2. " + equipos[1].getNombre());
         int opcion = entrada.nextInt();
+        entrada.nextLine();
         if (opcion == 1) {
             menuABMEquipos(equipos[0], 0); // Llama al menú para un equipo
         } else if (opcion==2) {
@@ -76,6 +77,7 @@ public class Formularios {
         System.out.println("2. Suplentes");
         System.out.println("3. Director técnico");
         int opcion = entrada.nextInt();
+        entrada.nextLine();
 
         switch (opcion) {
             case 1:
@@ -107,6 +109,7 @@ public class Formularios {
             }
             System.out.println("Ingrese opcion (0 para salir)");
             opcion = entrada.nextInt();
+            entrada.nextLine();
 
             if(opcion == 0){
                 menuABMEquipos(pEquipo, posicion);
@@ -254,12 +257,13 @@ public class Formularios {
             if (opcion == 1 || opcion == 2 || opcion == 3) {
                 System.out.println("Ingrese cédula: ");
                 int cedula = entrada.nextInt();
+                entrada.nextLine();
                 System.out.println("Ingrese nombre: ");
-                String nombre = entrada.next();
+                String nombre = entrada.nextLine();
                 System.out.println("Ingrese apellido: ");
-                String apellido = entrada.next();
+                String apellido = entrada.nextLine();
                 System.out.println("Ingrese puesto: ");
-                String puesto = entrada.next();
+                String puesto = entrada.nextLine();
                 unPartido.getTernaArbitral().set(opcion-1, new Arbitro(cedula, nombre, apellido, puesto));
 
             } else {
@@ -276,7 +280,7 @@ public class Formularios {
     public static void menuPrincipalPartido(){
         int opcion =-1;
         while(opcion!=0){
-
+            String prueba = unPartido.toString();
             System.out.println("Menú principal partido (ingrese 0 para salir): ");
             System.out.println(unPartido.toString());
             System.out.println("1. Modificar");
@@ -343,7 +347,7 @@ public class Formularios {
                 }
             }
             for(int i =0; i< 2; i++){
-                if(unPartido.getTernaArbitral().get(i).getNombre()==null){
+                if(unPartido.getTernaArbitral().size() == 0){
                     return false;
                 }
             }
@@ -408,7 +412,7 @@ public class Formularios {
 
         }
         else{
-            System.out.println("Faltan jugadores o equipos por ingresar.");
+            System.out.println("Faltan equipos, jugadores, árbitro o partido para comenzar.");
             menuPrincipal();
         }
     }
@@ -432,7 +436,7 @@ public class Formularios {
                 }
             }
             int jugadorEntra = entrada.nextInt();
-            if(jugadorSale<12 && jugadorEntra<6){
+            if(jugadorSale<12 && jugadorEntra<6 && jugadorSale > 0 && jugadorEntra > 0){
                 ArrayList<Jugador> titulares = equipos[opcion-1].getJugadoresTitulares();
                 Jugador titular = titulares.get(jugadorSale-1);
                 ArrayList<Jugador> suplentes = equipos[opcion-1].getJugadoresSuplentes();
@@ -511,7 +515,7 @@ public class Formularios {
 
         System.out.println(" ");
         System.out.println("Terna arbitral: ");
-        for(int i =0; i<unPartido.getTernaArbitral().size(); i++){
+        for(int i =0; i<3; i++){
             System.out.println(unPartido.getTernaArbitral().get(i).toString());
         }
         System.out.println(" ");
@@ -526,7 +530,7 @@ public class Formularios {
     }
 
     public static void finalizarPartido(){
-        System.out.println("El partido finalizó: "+equipos[0]+" "+unPartido.getGolesEquipo1()+ " - "+equipos[1]+" "+unPartido.getGolesEquipo2() +".\nElija una opción (0 para finalizar el programa): ");
+        System.out.println("El partido finalizó: "+equipos[0].getNombre()+" "+unPartido.getGolesEquipo1()+ " - "+equipos[1].getNombre()+" "+unPartido.getGolesEquipo2() +".\nElija una opción (0 para finalizar el programa): ");
         System.out.println("1. Minutos jugados");
         System.out.println("2. Listar goleadores");
         System.out.println("3. Listado general");

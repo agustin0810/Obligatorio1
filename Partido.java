@@ -48,7 +48,6 @@ public class Partido {
     }
 
     public Partido(String lugar, String fecha, String hora, String clima, int minutosJugados) {
-        inicializarArbitros();
         this.lugar = lugar;
         this.fecha = fecha;
         this.hora = hora;
@@ -68,12 +67,6 @@ public class Partido {
                 ", minutosJugados=" + minutosJugados +
                 ", arbitros=[" + ternaArbitral.get(0).toString() + ternaArbitral.get(1).toString() + ternaArbitral.get(2).toString() +"]"+
                 '}';
-    }
-    public void inicializarArbitros(){
-        for(int i = 0; i < 2; i++){
-            Arbitro temporal = new Arbitro();
-            ternaArbitral.add(temporal);
-        }
     }
     private String fecha;
     private String hora;
